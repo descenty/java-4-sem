@@ -1,13 +1,14 @@
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.function.Consumer;
 
 public class SynchronizedSet<E> implements Set<E> {
-    private Set<E> set;
+    private final Set<E> set;
 
-    public SynchronizedSet(Set<E> set) {
-        this.set = set;
+    public SynchronizedSet() {
+        set = new HashSet<>();
     }
 
     @Override
