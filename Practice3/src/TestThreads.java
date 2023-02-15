@@ -65,8 +65,8 @@ public class TestThreads {
     public static void main(String[] args) throws InterruptedException {
         // Set<Integer> set = new HashSet<>();
         // TestSet(set);
-        Set<Integer> synchronizedSet = new SynchronizedSet<>();
-        TestSet(synchronizedSet);
+        // Set<Integer> synchronizedSet = new SynchronizedSet<>();
+        // TestSet(synchronizedSet);
         
         // Map<Integer, Integer> map = new HashMap<>();
         // TestMap(map);
