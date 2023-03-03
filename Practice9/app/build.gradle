@@ -1,0 +1,40 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
+
+application {
+    mainClass = 'practice9.App'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': application.mainClass
+    }
+}
+
+
+task copyJar {
+    copy {
+        from 'build/libs/app.jar'
+        into "docker"
+    }
+}
+
+task buildDocker(type: Exec) {
+    workingDir 'docker'
+    commandLine 'docker', 'build', '-t', 'my-app', '.'
+}
+
+task runDocker(type: Exec, dependsOn: buildDocker) {
+    workingDir 'docker'
+    commandLine 'docker', 'run', '--rm', 'my-app'
+}
+
+build.finalizedBy(copyJar, buildDocker, runDocker)
