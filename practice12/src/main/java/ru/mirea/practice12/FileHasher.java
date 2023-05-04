@@ -1,4 +1,4 @@
-package ru.mirea.hasher;
+package ru.mirea.practice12;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import jakarta.annotation.PostConstruct;
@@ -26,7 +26,6 @@ public class FileHasher {
         outputFileObj = new File(outputFile);
 
         if (!inputFileObj.exists()) {
-            outputFileObj.createNewFile();
             try (FileOutputStream outputStream = new FileOutputStream(outputFileObj)) {
                 outputStream.write("null".getBytes());
             }
@@ -48,8 +47,6 @@ public class FileHasher {
                 outputStream.write(hashString.getBytes());
             }
         }
-
-        inputFileObj.delete();
     }
 
     @PreDestroy
