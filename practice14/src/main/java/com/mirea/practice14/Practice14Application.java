@@ -1,4 +1,4 @@
-package com.practice14.practice14;
+package com.mirea.practice14;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
