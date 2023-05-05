@@ -1,7 +1,6 @@
 package com.mirea.practice14.Departure;
 
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,11 +14,11 @@ class DepartureRepository {
 
     @PostConstruct
     public void init() {
-        departures.add(new Departure("Letter", "01.05.2023"));
-        departures.add(new Departure("Package", "02.05.2023"));
-        departures.add(new Departure("Letter", "03.05.2023"));
-        departures.add(new Departure("Package", "04.05.2023"));
-        departures.add(new Departure("Letter", "05.05.2023"));
+        departures.add(new Departure("Письмо", "01.05.2023"));
+        departures.add(new Departure("Посылка", "02.05.2023"));
+        departures.add(new Departure("Письмо", "03.05.2023"));
+        departures.add(new Departure("Посылка", "04.05.2023"));
+        departures.add(new Departure("Посылка", "05.05.2023"));
     }
 
     public Departure[] getAll() {
@@ -27,7 +26,6 @@ class DepartureRepository {
     }
 
     public Departure[] getByType(String type) {
-        System.out.println(type);
         return departures.stream().filter(departure -> departure.getType().equals(type))
                 .collect(Collectors.toList()).toArray(new Departure[0]);
     }
