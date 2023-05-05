@@ -1,0 +1,16 @@
+spring:
+  thymeleaf: # Thymeleaf
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    prefix: file:src/main/resources/templates/
+  resources: # Static resources
+    static-locations: file:src/main/resources/static/
+    cache:
+      period: 0
+
+student:
+  name: Alexander
+  last_name: Bychenkov
+  group: IKBO-32-21
+  variant_number: 4
