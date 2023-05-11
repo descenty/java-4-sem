@@ -10,26 +10,32 @@ import com.mirea.practice18.PostOffice.PostOfficeRepository;
 import com.mirea.practice18.dto.DepartureDto;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class DepartureServiceImpl implements DepartureService {
     private final DepartureRepository departureRepository;
     private final PostOfficeRepository postOfficeRepository;
 
     public List<Departure> getAll(String type, String date, Long postOfficeId) {
+        log.info("Getting all departures (type: {}, date: {}, postOfficeId: {})", type, date, postOfficeId);
         return departureRepository.findAll(type, date, postOfficeId);
     }
 
     public Departure getById(Long id) {
+        log.info("Getting departure by id: {}", id);
         return departureRepository.findById(id).orElse(null);
     }
 
     public void add(DepartureDto departureDto) {
+        log.info("Adding departure: {}", departureDto);
         departureRepository.save(mapToEntity(departureDto));
     }
 
     public boolean remove(Long id) {
+        log.info("Removing departure by id: {}", id);
         if (departureRepository.existsById(id)) {
             departureRepository.deleteById(id);
             return true;
