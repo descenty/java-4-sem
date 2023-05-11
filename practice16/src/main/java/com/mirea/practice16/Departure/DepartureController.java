@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mirea.practice16.dto.DepartureDto;
+
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -21,13 +23,21 @@ public class DepartureController {
     private final DepartureService departureService;
 
     @GetMapping("/")
-    public List<Departure> getAll() {
-        return departureService.getAll();
+    public List<Departure> getAll(@RequestParam(required = false) String type,
+            @RequestParam(required = false) String date, @RequestParam(required = false) Long postOfficeId) {
+        return departureService.getAll(type, date, postOfficeId);
     }
 
+    @GetMapping("/{id}/")
+    public ResponseEntity<Departure> getById(@PathVariable Long id) {
+        Departure departure = departureService.getById(id);
+        return departure != null ? ResponseEntity.ok(departure) : ResponseEntity.notFound().build();
+    }
+
+
     @PostMapping("/")
-    public void add(@RequestBody Departure departure) {
-        departureService.add(departure);
+    public void add(@RequestBody DepartureDto departureDto) {
+        departureService.add(departureDto);
     }
 
     @DeleteMapping("/{id}/")

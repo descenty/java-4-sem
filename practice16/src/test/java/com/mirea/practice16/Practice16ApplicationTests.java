@@ -1,10 +1,11 @@
-package com.practice14.practice14;
+package com.mirea.practice16;
+
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Practice14ApplicationTests {
+class Practice16ApplicationTests {
 
 	@Test
 	void contextLoads() {
