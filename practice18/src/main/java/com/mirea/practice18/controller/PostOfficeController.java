@@ -1,4 +1,4 @@
-package com.mirea.practice18.PostOffice;
+package com.mirea.practice18.controller;
 
 import java.util.List;
 
@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.mirea.practice18.entity.PostOffice;
+import com.mirea.practice18.service.PostOfficeService;
 
 import lombok.AllArgsConstructor;
 
@@ -39,7 +42,7 @@ public class PostOfficeController {
 
     @DeleteMapping("/{id}/")
     public ResponseEntity<?> remove(@PathVariable Long id) {
-        return postOfficeService.removeById(id) ? ResponseEntity.ok().build()
+        return postOfficeService.remove(id) ? ResponseEntity.ok().build()
                 : ResponseEntity.notFound().build();
     }
 

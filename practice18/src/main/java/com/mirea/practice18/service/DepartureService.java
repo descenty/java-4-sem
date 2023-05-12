@@ -1,41 +1,50 @@
-package com.mirea.practice18.Departure;
+package com.mirea.practice18.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.mirea.practice18.PostOffice.PostOffice;
-import com.mirea.practice18.PostOffice.PostOfficeRepository;
 import com.mirea.practice18.dto.DepartureDto;
+import com.mirea.practice18.entity.Departure;
+import com.mirea.practice18.entity.PostOffice;
+import com.mirea.practice18.repository.DepartureRepository;
+import com.mirea.practice18.repository.PostOfficeRepository;
 
+import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 @Service
 @AllArgsConstructor
-@Slf4j
-public class DepartureServiceImpl implements DepartureService {
+public class DepartureService {
     private final DepartureRepository departureRepository;
     private final PostOfficeRepository postOfficeRepository;
+    private final EmailService emailService;
 
     public List<Departure> getAll(String type, String date, Long postOfficeId) {
-        log.info("Getting all departures (type: {}, date: {}, postOfficeId: {})", type, date, postOfficeId);
         return departureRepository.findAll(type, date, postOfficeId);
     }
 
     public Departure getById(Long id) {
-        log.info("Getting departure by id: {}", id);
         return departureRepository.findById(id).orElse(null);
     }
 
+    @Transactional
     public void add(DepartureDto departureDto) {
-        log.info("Adding departure: {}", departureDto);
-        departureRepository.save(mapToEntity(departureDto));
+        Departure departure = departureRepository.save(mapToEntity(departureDto));
+        String subject = "Создано отправление № " + departure.getId();
+        String msgBody = String.format(
+                "Отправление № %s\nТип: %s,\nДата отправления: %s\nПочтовое отделение: %s, г. %s",
+                departure.getId(),
+                departure.getType(),
+                departure.getDepartureDate(),
+                departure.getPostOffice().getName(),
+                departure.getPostOffice().getCityName());
+        emailService.sendEmail(subject, msgBody);
     }
 
+    @Transactional
     public boolean remove(Long id) {
-        log.info("Removing departure by id: {}", id);
         if (departureRepository.existsById(id)) {
             departureRepository.deleteById(id);
             return true;

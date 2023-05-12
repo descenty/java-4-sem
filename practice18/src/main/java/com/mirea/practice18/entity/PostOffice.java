@@ -1,8 +1,6 @@
-package com.mirea.practice18.PostOffice;
+package com.mirea.practice18.entity;
 
 import java.util.List;
-
-import com.mirea.practice18.Departure.Departure;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
