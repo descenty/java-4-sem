@@ -5943,3 +5943,41 @@ Consider defining a bean of type 'java.lang.String' in your configuration.
         – Tomcat started on port(s): 8080 (http) with context path ''
 10008 [main] INFO  c.m.p.Practice18Application
         – Started Practice18Application in 9.417 seconds (process running for 10.379)
+10971 [scheduling-1] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – backup() in 954 ms.
+46673 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/]
+        – Initializing Spring DispatcherServlet 'dispatcherServlet'
+46674 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet
+        – Initializing Servlet 'dispatcherServlet'
+46680 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet
+        – Completed initialization in 5 ms
+47054 [http-nio-8080-exec-1] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – getAll(date: null, postOfficeId: 4, type: Pismo) in 261 ms.
+53062 [http-nio-8080-exec-2] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – getAll(date: null, postOfficeId: 4, type: Pismo) in 237 ms.
+78339 [http-nio-8080-exec-3] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – getAll(date: null, postOfficeId: 4, type: Pismo) in 142 ms.
+96925 [http-nio-8080-exec-4] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – getAll(date: null, postOfficeId: 4, type: Pismo) in 143 ms.
+97223 [http-nio-8080-exec-5] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – getAll(date: null, postOfficeId: 4, type: Pismo) in 77 ms.
+97889 [http-nio-8080-exec-6] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – getAll(date: null, postOfficeId: 4, type: Pismo) in 143 ms.
+98688 [http-nio-8080-exec-7] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – getAll(date: null, postOfficeId: 4, type: Pismo) in 143 ms.
+98781 [http-nio-8080-exec-8] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – getAll(date: null, postOfficeId: 4, type: Pismo) in 146 ms.
+99031 [http-nio-8080-exec-9] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – getAll(date: null, postOfficeId: 4, type: Pismo) in 80 ms.
+99113 [http-nio-8080-exec-10] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – getAll(date: null, postOfficeId: 4, type: Pismo) in 75 ms.
+99362 [http-nio-8080-exec-1] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – getAll(date: null, postOfficeId: 4, type: Pismo) in 75 ms.
+99430 [http-nio-8080-exec-2] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – getAll(date: null, postOfficeId: 4, type: Pismo) in 139 ms.
+99634 [http-nio-8080-exec-3] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – getAll(date: null, postOfficeId: 4, type: Pismo) in 71 ms.
+99824 [http-nio-8080-exec-4] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – getAll(date: null, postOfficeId: 4, type: Pismo) in 71 ms.
+100136 [http-nio-8080-exec-5] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – getAll(date: null, postOfficeId: 4, type: Pismo) in 73 ms.
