@@ -1,6 +1,6 @@
 package com.mirea.practice16.Departure;
 
- import com.fasterxml.jackson.annotation.JsonIncludeProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import com.mirea.practice16.PostOffice.PostOffice;
 
 import jakarta.persistence.Entity;
@@ -26,6 +26,6 @@ public class Departure {
     private String departureDate;
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "postofficeId")
-    @JsonIncludeProperties(value = {"id"})
+    @JsonIncludeProperties(value = { "id" })
     private PostOffice postOffice;
 }

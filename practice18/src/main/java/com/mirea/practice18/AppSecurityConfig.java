@@ -74,6 +74,7 @@ public class AppSecurityConfig {
 				.csrf(csrf -> csrf.disable())
 				.authorizeRequests(auth -> auth
 						.requestMatchers("/login").permitAll()
+						.requestMatchers("/signup").permitAll()
 						.requestMatchers("/token/refresh").permitAll()
 						.requestMatchers("/admin").hasAuthority("SCOPE_adm")
 						.requestMatchers("/user").hasAuthority("SCOPE_usr")
@@ -81,6 +82,16 @@ public class AppSecurityConfig {
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.oauth2ResourceServer(oauth2 -> oauth2.jwt())
 				.build();
+
+
+		// without any authorization
+		// return http
+		// 		.csrf(csrf -> csrf.disable())
+		// 		.authorizeRequests(auth -> auth
+		// 				.anyRequest().permitAll())
+		// 		.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+		// 		.oauth2ResourceServer(oauth2 -> oauth2.jwt())
+		// 		.build();
 	}
 
 }

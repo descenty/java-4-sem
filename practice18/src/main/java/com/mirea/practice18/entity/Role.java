@@ -1,5 +1,7 @@
 package com.mirea.practice18.entity;
 
+import com.mirea.practice18.dto.ERole;
+
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -7,12 +9,12 @@ import lombok.Data;
 @Entity
 @Data
 public class Role {
-
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
-    @Column(name = "role_name")
-    private String roleName;
+	@Enumerated(EnumType.STRING)
+	@Column(length = 20)
+	private ERole roleName;
+
 }
