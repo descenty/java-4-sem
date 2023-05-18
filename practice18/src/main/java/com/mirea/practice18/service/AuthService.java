@@ -1,5 +1,8 @@
 package com.mirea.practice18.service;
 
+import java.util.Optional;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -22,17 +25,22 @@ public class AuthService {
   private final JwtService jwtService;
   private final AuthenticationManager authenticationManager;
 
-  public AuthResponseDto login(AuthRequestDto request) {
+  public ResponseEntity<?> login(AuthRequestDto request) {
+    try {
     authenticationManager.authenticate(
         new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
-    var user = userRepository.findByEmail(request.getEmail()).orElseThrow();
+    }
+    catch (Exception e) {
+      return ResponseEntity.badRequest().body("Invalid email/password");
+    }
+    User user = userRepository.findByEmail(request.getEmail()).orElseThrow();
     var jwt = jwtService.generateToken(user);
-    return AuthResponseDto.builder()
-        .token(jwt)
-        .build();
+    return ResponseEntity.ok(new AuthResponseDto(jwt));
   }
 
-  public AuthResponseDto register(AuthRequestDto request) {
+  public ResponseEntity<?> register(AuthRequestDto request) {
+    if (userRepository.existsByEmail(request.getEmail()))
+      return ResponseEntity.badRequest().body("User with this email already exists");
     var user = User.builder()
         .email(request.getEmail())
         .password(passwordEncoder.encode(request.getPassword()))
@@ -40,8 +48,6 @@ public class AuthService {
         .build();
     userRepository.save(user);
     var jwt = jwtService.generateToken(user);
-    return AuthResponseDto.builder()
-        .token(jwt)
-        .build();
+    return ResponseEntity.ok(new AuthResponseDto(jwt));
   }
 }

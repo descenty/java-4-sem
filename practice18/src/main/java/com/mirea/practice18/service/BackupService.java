@@ -8,11 +8,9 @@ import org.springframework.jmx.export.annotation.ManagedOperation;
 import org.springframework.jmx.export.annotation.ManagedResource;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mirea.practice18.model.PostOffice;
 import com.mirea.practice18.repository.DepartureRepository;
 import com.mirea.practice18.repository.PostOfficeRepository;
 
