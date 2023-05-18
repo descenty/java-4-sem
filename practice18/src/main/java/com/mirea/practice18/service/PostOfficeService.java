@@ -1,13 +1,10 @@
 package com.mirea.practice18.service;
 
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.mirea.practice18.dto.EmailDetails;
-import com.mirea.practice18.entity.PostOffice;
+import com.mirea.practice18.model.PostOffice;
 import com.mirea.practice18.repository.PostOfficeRepository;
 
 import jakarta.transaction.Transactional;

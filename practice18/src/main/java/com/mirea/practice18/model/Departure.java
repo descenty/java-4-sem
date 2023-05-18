@@ -1,4 +1,4 @@
-package com.mirea.practice18.entity;
+package com.mirea.practice18.model;
 
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 
@@ -14,9 +14,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "departure")
 @Getter
 @Setter
+@Table(name = "departure")
 public class Departure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

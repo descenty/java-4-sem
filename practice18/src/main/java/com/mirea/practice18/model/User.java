@@ -1,43 +1,41 @@
-package com.mirea.practice18.service;
+package com.mirea.practice18.model;
 
-import java.util.ArrayList;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.mirea.practice18.entity.Role;
-import com.mirea.practice18.entity.User;
-
-import lombok.AllArgsConstructor;
-
+@Entity
+@Data
+@Builder
+@NoArgsConstructor
 @AllArgsConstructor
-public class CustomUserDetails implements UserDetails {
-
-    private final User user;
+@Table(name = "users")
+public class User implements UserDetails {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String email;
+    private String password;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        Set<Role> roles = user.getRoles();
-
-        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        for (Role role : roles) {
-            authorities.add(new SimpleGrantedAuthority(role.getRoleName().toString()));
-        }
-        return authorities;
-    }
-
-    @Override
-    public String getPassword() {
-        return user.getPassword();
+        return List.of(new SimpleGrantedAuthority(role.name()));
     }
 
     @Override
     public String getUsername() {
-        return user.getEmail();
+        return email;
     }
 
     @Override

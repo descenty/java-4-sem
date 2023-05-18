@@ -8,8 +8,11 @@ import org.springframework.jmx.export.annotation.ManagedOperation;
 import org.springframework.jmx.export.annotation.ManagedResource;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mirea.practice18.model.PostOffice;
 import com.mirea.practice18.repository.DepartureRepository;
 import com.mirea.practice18.repository.PostOfficeRepository;
 
@@ -28,7 +31,8 @@ public class BackupService {
 
     @Scheduled(fixedRate = 1800000)
     @ManagedOperation
-    public void backup() {
+    // @Transactional
+    public void backup() throws JsonProcessingException {
         File directory = new File(backupDir);
         if (!directory.exists()) {
             directory.mkdir();
@@ -37,15 +41,14 @@ public class BackupService {
             file.delete();
         }
 
-        File file = new File(backupDir + "/departure.txt");
-        try (FileOutputStream fos = new FileOutputStream(file)) {
+        File file1 = new File(backupDir + "/departure.txt");
+        try (FileOutputStream fos = new FileOutputStream(file1)) {
             fos.write(objectMapper.writeValueAsString(departureRepository.findAll()).getBytes());
         } catch (Exception e) {
             System.out.println(e);
         }
-
-        file = new File(backupDir + "/post_office.txt");
-        try (FileOutputStream fos = new FileOutputStream(file)) {
+        File file2 = new File(backupDir + "/post_office.txt");
+        try (FileOutputStream fos = new FileOutputStream(file2)) {
             fos.write(objectMapper.writeValueAsString(postOfficeRepository.findAll()).getBytes());
         } catch (Exception e) {
             System.out.println(e);

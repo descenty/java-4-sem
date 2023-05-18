@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.mirea.practice18.dto.DepartureDto;
-import com.mirea.practice18.entity.Departure;
-import com.mirea.practice18.entity.PostOffice;
+import com.mirea.practice18.model.Departure;
+import com.mirea.practice18.model.PostOffice;
 import com.mirea.practice18.repository.DepartureRepository;
 import com.mirea.practice18.repository.PostOfficeRepository;
 

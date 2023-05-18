@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mirea.practice18.dto.DepartureDto;
-import com.mirea.practice18.entity.Departure;
+import com.mirea.practice18.model.Departure;
 import com.mirea.practice18.service.DepartureService;
 
 import lombok.AllArgsConstructor;

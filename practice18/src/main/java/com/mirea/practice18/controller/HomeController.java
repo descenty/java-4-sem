@@ -1,4 +1,4 @@
-package com.mirea.practice18;
+package com.mirea.practice18.controller;
 
 
 import org.springframework.beans.factory.annotation.Value;

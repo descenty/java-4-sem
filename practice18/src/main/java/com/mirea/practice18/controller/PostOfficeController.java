@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mirea.practice18.entity.PostOffice;
+import com.mirea.practice18.model.PostOffice;
 import com.mirea.practice18.service.PostOfficeService;
 
 import lombok.AllArgsConstructor;
