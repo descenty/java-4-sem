@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.mirea.practice18.dto.AuthRequestDto;
 import com.mirea.practice18.dto.AuthResponseDto;
-import com.mirea.practice18.model.Role;
+import com.mirea.practice18.model.ERole;
 import com.mirea.practice18.model.User;
 import com.mirea.practice18.repository.UserRepository;
 
@@ -44,7 +44,7 @@ public class AuthService {
     var user = User.builder()
         .email(request.getEmail())
         .password(passwordEncoder.encode(request.getPassword()))
-        .role(Role.USER)
+        .role(ERole.USER)
         .build();
     userRepository.save(user);
     var jwt = jwtService.generateToken(user);

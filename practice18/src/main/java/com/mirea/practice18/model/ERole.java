@@ -1,5 +1,5 @@
 package com.mirea.practice18.model;
 
-public enum Role {
+public enum ERole {
 	USER, ADMIN
 }
