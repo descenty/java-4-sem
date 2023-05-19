@@ -3,6 +3,7 @@ package com.mirea.practice18.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.mirea.practice18.dto.DepartureDto;
@@ -12,14 +13,16 @@ import com.mirea.practice18.repository.DepartureRepository;
 import com.mirea.practice18.repository.PostOfficeRepository;
 
 import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class DepartureService {
     private final DepartureRepository departureRepository;
     private final PostOfficeRepository postOfficeRepository;
     private final EmailService emailService;
+    @Value("${send_email}")
+    private boolean sendEmail;
 
     public List<Departure> getAll(String type, String date, Long postOfficeId) {
         return departureRepository.findAll(type, date, postOfficeId);
@@ -32,15 +35,17 @@ public class DepartureService {
     @Transactional
     public void add(DepartureDto departureDto) {
         Departure departure = departureRepository.save(mapToEntity(departureDto));
-        String subject = "Создано отправление № " + departure.getId();
-        String msgBody = String.format(
-                "Отправление № %s\nТип: %s,\nДата отправления: %s\nПочтовое отделение: %s, г. %s",
-                departure.getId(),
-                departure.getType(),
-                departure.getDepartureDate(),
-                departure.getPostOffice().getName(),
-                departure.getPostOffice().getCityName());
-        emailService.sendEmail(subject, msgBody);
+        if (sendEmail) {
+            String subject = "Создано отправление № " + departure.getId();
+            String msgBody = String.format(
+                    "Отправление № %s\nТип: %s,\nДата отправления: %s\nПочтовое отделение: %s, г. %s",
+                    departure.getId(),
+                    departure.getType(),
+                    departure.getDepartureDate(),
+                    departure.getPostOffice().getName(),
+                    departure.getPostOffice().getCityName());
+            emailService.sendEmail(subject, msgBody);
+        }
     }
 
     @Transactional
