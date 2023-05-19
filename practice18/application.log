@@ -3352,3 +3352,53 @@ io.jsonwebtoken.security.SignatureException: JWT signature does not match locall
         – Initializing Servlet 'dispatcherServlet'
 11673 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet
         – Completed initialization in 0 ms
+12243 [scheduling-1] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – backup() in 834 ms.
+38757 [http-nio-8080-exec-7] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – loadUserByUsername(username: user@yandex.ru) in 304 ms.
+39086 [http-nio-8080-exec-7] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – generateToken(userDetails: User(id=8, email=user@yandex.ru, password=$2a$10$AZXhni66RUREzRXer78lHewFgmIThH1uCIqI2f3FA5Ke7YsGFXKm2, role=USER)) in 26 ms.
+39088 [http-nio-8080-exec-7] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – login(request: AuthRequestDto(email=user@yandex.ru, password=qweasdzxc)) in 776 ms.
+55052 [http-nio-8080-exec-6] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – extractUsername(token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQHlhbmRleC5ydSIsImlhdCI6MTY4NDQ5NDE1NiwiZXhwIjoxNjg0NDk1NTk2fQ.12Z3x2DF29tH9XUu0io8SyuTNJv_D5OQVjzs7Fd_3Ak) in 5 ms.
+55335 [http-nio-8080-exec-6] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – loadUserByUsername(username: user@yandex.ru) in 281 ms.
+55342 [http-nio-8080-exec-6] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – isTokenValid(userDetails: User(id=8, email=user@yandex.ru, password=$2a$10$AZXhni66RUREzRXer78lHewFgmIThH1uCIqI2f3FA5Ke7YsGFXKm2, role=USER), token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQHlhbmRleC5ydSIsImlhdCI6MTY4NDQ5NDE1NiwiZXhwIjoxNjg0NDk1NTk2fQ.12Z3x2DF29tH9XUu0io8SyuTNJv_D5OQVjzs7Fd_3Ak) in 6 ms.
+68133 [http-nio-8080-exec-5] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – loadUserByUsername(username: admin@yandex.ru) in 233 ms.
+68447 [http-nio-8080-exec-5] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – generateToken(userDetails: User(id=9, email=admin@yandex.ru, password=$2a$10$tUqZio36P.HoE4I1.p.ufeDkTff9z3KIcHRQJbDj4.rMhstwrCKzO, role=ADMIN)) in 2 ms.
+68448 [http-nio-8080-exec-5] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – login(request: AuthRequestDto(email=admin@yandex.ru, password=qweasdzxc)) in 548 ms.
+103133 [http-nio-8080-exec-8] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – extractUsername(token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB5YW5kZXgucnUiLCJpYXQiOjE2ODQ0OTQxODYsImV4cCI6MTY4NDQ5NTYyNn0.vFGDCz5VwNYLG6syu9mRe5R4pX5b6GaBjq3sbQjCVkY) in 4 ms.
+103361 [http-nio-8080-exec-8] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – loadUserByUsername(username: admin@yandex.ru) in 227 ms.
+103371 [http-nio-8080-exec-8] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – isTokenValid(userDetails: User(id=9, email=admin@yandex.ru, password=$2a$10$tUqZio36P.HoE4I1.p.ufeDkTff9z3KIcHRQJbDj4.rMhstwrCKzO, role=ADMIN), token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB5YW5kZXgucnUiLCJpYXQiOjE2ODQ0OTQxODYsImV4cCI6MTY4NDQ5NTYyNn0.vFGDCz5VwNYLG6syu9mRe5R4pX5b6GaBjq3sbQjCVkY) in 9 ms.
+106659 [http-nio-8080-exec-8] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – sendEmail(subject: Novoe pochtovoe otdelenie v g. Moskva, msgBody: Pochtovoe otdelenie № 13
+Pochta Rossii № 249023, g. Moskva) in 3087 ms.
+106660 [http-nio-8080-exec-8] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – add(postOfficeDto: com.mirea.practice18.model.PostOffice@4b09b9a1) in 3286 ms.
+125680 [http-nio-8080-exec-10] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – extractUsername(token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB5YW5kZXgucnUiLCJpYXQiOjE2ODQ0OTQxODYsImV4cCI6MTY4NDQ5NTYyNn0.vFGDCz5VwNYLG6syu9mRe5R4pX5b6GaBjq3sbQjCVkY) in 3 ms.
+125990 [http-nio-8080-exec-10] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – loadUserByUsername(username: admin@yandex.ru) in 309 ms.
+125999 [http-nio-8080-exec-10] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – isTokenValid(userDetails: User(id=9, email=admin@yandex.ru, password=$2a$10$tUqZio36P.HoE4I1.p.ufeDkTff9z3KIcHRQJbDj4.rMhstwrCKzO, role=ADMIN), token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkB5YW5kZXgucnUiLCJpYXQiOjE2ODQ0OTQxODYsImV4cCI6MTY4NDQ5NTYyNn0.vFGDCz5VwNYLG6syu9mRe5R4pX5b6GaBjq3sbQjCVkY) in 7 ms.
+129198 [http-nio-8080-exec-10] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – sendEmail(subject: Sozdano otpravlenie № 55, msgBody: Otpravlenie № 55
+Tip: Pismo,
+Data otpravlenija: 18.05.2023
+Pochtovoe otdelenie: Pochta Rossii № 249023, g. Moskva) in 2901 ms.
+129199 [http-nio-8080-exec-10] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – add(departureDto: DepartureDto(id=null, type=Pismo, departureDate=18.05.2023, postofficeId=4)) in 3193 ms.
+140502 [http-nio-8080-exec-2] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – extractUsername(token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQHlhbmRleC5ydSIsImlhdCI6MTY4NDQ5NDE1NiwiZXhwIjoxNjg0NDk1NTk2fQ.12Z3x2DF29tH9XUu0io8SyuTNJv_D5OQVjzs7Fd_3Ak) in 2 ms.
+140736 [http-nio-8080-exec-2] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – loadUserByUsername(username: user@yandex.ru) in 233 ms.
+140741 [http-nio-8080-exec-2] INFO  c.m.p.l.ExecutionTimeArgsAspect
+        – isTokenValid(userDetails: User(id=8, email=user@yandex.ru, password=$2a$10$AZXhni66RUREzRXer78lHewFgmIThH1uCIqI2f3FA5Ke7YsGFXKm2, role=USER), token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQHlhbmRleC5ydSIsImlhdCI6MTY4NDQ5NDE1NiwiZXhwIjoxNjg0NDk1NTk2fQ.12Z3x2DF29tH9XUu0io8SyuTNJv_D5OQVjzs7Fd_3Ak) in 5 ms.
