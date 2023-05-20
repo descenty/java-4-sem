@@ -11,7 +11,6 @@ import org.mockito.Captor;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.data.domain.Example;
 
 import com.mirea.practice18.dto.DepartureDto;
 import com.mirea.practice18.model.Departure;
@@ -62,7 +61,7 @@ public class DepartureServiceTests<S extends Departure> {
     @Test
     void getAll() {
         DepartureService departureService = new DepartureService(departureRepository, postOfficeRepository);
-        Mockito.when(departureRepository.findAll()).thenReturn(departures);
+        Mockito.when(departureRepository.findAll(null, null, null)).thenReturn(departures);
         Assertions.assertThat(departureService.getAll(null, null, null)).isEqualTo(departures);
     }
 

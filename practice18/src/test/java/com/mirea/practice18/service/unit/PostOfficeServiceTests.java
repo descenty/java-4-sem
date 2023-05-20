@@ -32,16 +32,15 @@ public class PostOfficeServiceTests {
     @Test
     void getAll() {
         PostOfficeService postOfficeService = new PostOfficeService(postOfficeRepository);
-        postOfficeService.getAll("", "");
-        Mockito.verify(postOfficeRepository).findAll("", "");
-
+        Mockito.when(postOfficeRepository.findAll((String) null, (String) null)).thenReturn(postOffices);
+        Assertions.assertThat(postOfficeService.getAll(null, null)).isEqualTo(postOffices);
     }
 
     @Test
     void getById() {
         PostOfficeService postOfficeService = new PostOfficeService(postOfficeRepository);
         Mockito.when(postOfficeRepository.findById(1L)).thenReturn(Optional.of(postOffices.get(0)));
-        Assertions.assertThat(postOfficeService.getById(1L)).isEqualTo(postOffices.get(0));
+        Assertions.assertThat(postOfficeService.getById(1L).get()).isEqualTo(postOffices.get(0));
     }
 
     @Test
