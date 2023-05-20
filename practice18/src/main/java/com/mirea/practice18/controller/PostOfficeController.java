@@ -24,29 +24,27 @@ import lombok.AllArgsConstructor;
 public class PostOfficeController {
     private final PostOfficeService postOfficeService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<PostOffice> getAll(@RequestParam(required = false) String name,
             @RequestParam(required = false) String cityName) {
         return postOfficeService.getAll(name, cityName);
     }
 
-    @GetMapping("/{id}/")
+    @GetMapping("/{id}")
     public ResponseEntity<PostOffice> getById(@PathVariable Long id) {
-        PostOffice postOffice = postOfficeService.getById(id);
-        return postOffice != null ? ResponseEntity.ok(postOffice) : ResponseEntity.notFound().build();
+        return postOfficeService.getById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
-    @PostMapping("/")
+    @PostMapping("")
     public void add(@RequestBody PostOffice postOffice) {
         postOfficeService.add(postOffice);
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
-    @DeleteMapping("/{id}/")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> remove(@PathVariable Long id) {
-        return postOfficeService.remove(id) ? ResponseEntity.ok().build()
-                : ResponseEntity.notFound().build();
+        return postOfficeService.remove(id) ? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
 
 }

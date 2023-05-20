@@ -1,4 +1,4 @@
-package com.mirea.practice18.logging;
+package com.mirea.practice18.aspect;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

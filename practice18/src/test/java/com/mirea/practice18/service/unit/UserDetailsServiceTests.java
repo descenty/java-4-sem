@@ -1,4 +1,4 @@
-package com.mirea.practice18.service;
+package com.mirea.practice18.service.unit;
 
 
 import java.util.List;
@@ -13,6 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.mirea.practice18.model.User;
 import com.mirea.practice18.repository.UserRepository;
+import com.mirea.practice18.service.UserDetailsServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 public class UserDetailsServiceTests {

@@ -11,12 +11,20 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@ToString(exclude = "departures")
 @Table(name = "postoffice")
 public class PostOffice {
     @Id
@@ -24,7 +32,7 @@ public class PostOffice {
     private Long id;
     private String name;
     private String cityName;
-    @OneToMany(mappedBy = "postOffice", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "postOffice", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<Departure> departures;
 }
